@@ -1,7 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-module.exports = {
+export default {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
