@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -33,8 +32,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlwebpackPlugin({ title: 'Kanban app' })
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   devServer: {
