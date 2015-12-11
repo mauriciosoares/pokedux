@@ -19,9 +19,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: path.join(__dirname, 'src', 'css')
+        test: /\.sass$/,
+        loaders: ['style', 'css', 'sass?indentedSyntax=sass'],
+        include: path.join(__dirname, 'src', 'sass')
       },
 
       {
