@@ -5,17 +5,12 @@ const history = createHistory({
   queryKey: false
 });
 
-import Container from './components/container.js'
-import Pokemon from './screens/pokemon/';
+import routeConfig from './utils/route-config';
 
 export default class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Route path="/" component={Container}>
-          <Route path="/pokemon/:id" component={Pokemon}></Route>
-        </Route>
-      </Router>
+      <Router history={history} routes={routeConfig} />
     );
   }
 }
