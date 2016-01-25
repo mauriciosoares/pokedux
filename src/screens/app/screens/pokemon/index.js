@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+import { POKEMON_IMG_PATH } from 'shared/utils/constants';
+
 export default class Pokemon extends Component {
   render() {
-    console.log(this.props.params.id);
+    const { id } = this.props.params;
     return (
-      <div>Pokemon rendering :D</div>
+      <div>
+        <img src={POKEMON_IMG_PATH + id + '.png'} />
+      </div>
     );
   }
 }
