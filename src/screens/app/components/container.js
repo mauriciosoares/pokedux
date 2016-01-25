@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {fetchPokemons} from 'actions/pokemons';
+import { fetchPokemons } from 'actions/pokemons';
 
 import List from './list';
 
 class App extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, pokemons } = this.props;
 
     dispatch(fetchPokemons());
   }
 
   render() {
     const { pokemons } = this.props;
-
-    console.log(this.props.children);
 
     return (
       <div>

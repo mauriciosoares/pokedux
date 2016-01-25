@@ -3,5 +3,6 @@ export const POKEMON_IMG_PATH = 'http://pokeapi.co/media/img/'
 
 export const pokemonsActions = {
   FETCH: 'FETCH',
-  FILL: 'FILL'
+  FILL: 'FILL',
+  FILL_SINGLE: 'FILL_SINGLE'
 };

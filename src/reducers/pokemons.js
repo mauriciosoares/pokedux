@@ -1,7 +1,8 @@
 import { pokemonsActions as actions } from 'shared/utils/constants';
 
 const initialState = {
-  list: {}
+  list: {},
+  cache: {}
 };
 
 export default function pokemons(state = initialState, action) {
@@ -11,6 +12,15 @@ export default function pokemons(state = initialState, action) {
         ...state,
         list: parsePokemonsList(action.pokemons)
       };
+
+    case actions.FILL_SINGLE:
+      const nextState = {
+        ...state
+      };
+
+      nextState.cache[action.id] = action.pokemon;
+
+      return nextState;
 
   default:
     return state;
