@@ -12,7 +12,7 @@ export default {
   output: {
     path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/public/'
   },
 
   module: {
