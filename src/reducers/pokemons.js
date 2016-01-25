@@ -1,8 +1,7 @@
 import { pokemonsActions as actions } from 'shared/utils/constants';
 
 const initialState = {
-  list: {},
-  pokemon: {}
+  list: {}
 };
 
 export default function pokemons(state = initialState, action) {

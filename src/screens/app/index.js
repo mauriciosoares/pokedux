@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import {fetchPokemons} from 'actions/pokemons';
+import { Router, Route, IndexRoute } from 'react-router';
+import createHistory from 'history/lib/createHashHistory';
+const history = createHistory({
+  queryKey: false
+});
 
-class App extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
+import Container from './components/container.js'
+import Pokemon from './screens/pokemon/';
 
-    dispatch(fetchPokemons());
-  }
-
+export default class App extends Component {
   render() {
-    const { pokemons } = this.props;
-
-    console.log(pokemons);
-
     return (
-      <div>
-        App
-      </div>
+      <Router history={history}>
+        <Route path="/" component={Container}>
+          <Route path="/pokemon/:id" component={Pokemon}></Route>
+        </Route>
+      </Router>
     );
   }
 }
-
-function mapStateToProps(state) {
-  return state;
-}
-
-export default connect(mapStateToProps)(App);
-// export default App;
