@@ -6,7 +6,8 @@ import { POKEMON_IMG_PATH } from 'shared/utils/constants';
 
 class Pokemon extends Component {
   componentDidMount() {
-    const { dispatch, cache } = this.props;
+    const { dispatch } = this.props;
+    const { cache } = this.props.pokemons;
     const { id } = this.props.params;
 
     if(!cache[id]) {
@@ -16,23 +17,32 @@ class Pokemon extends Component {
 
   render() {
     const { id } = this.props.params;
+    const { cache } = this.props.pokemons;
 
-    console.log(this.props.cache[id]);
-
-        // <img src={POKEMON_IMG_PATH + id + '.png'} />
     return (
       <div>
-        Fetching...
+        { (cache[id])
+          ? this.renderPokemon() :
+          'fetching pokemon' }
       </div>
     );
+  }
+
+  renderPokemon() {
+    const { id } = this.props.params;
+    const pokemon = this.props.pokemons.cache[id];
+
+    return(
+      <div>
+        <h2>{pokemon.name}</h2>
+        <img src={POKEMON_IMG_PATH + id + '.png'} />
+      </div>
+    )
   }
 }
 
 function mapStateToProps(state) {
-  const { cache } = state.pokemons;
-  return {
-    cache
-  };
+  return state;
 }
 
 export default connect(mapStateToProps)(Pokemon);

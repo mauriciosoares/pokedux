@@ -18,6 +18,12 @@ function fillSinglePokemons(pokemon, id) {
   };
 }
 
+export function test() {
+  return {
+    type: 'asdf'
+  }
+}
+
 export function fetchPokemons() {
   return dispatch => {
     // fetch(API_URL + 'api/v1/pokedex/1/') testing purposes
